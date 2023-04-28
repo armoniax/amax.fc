@@ -130,6 +130,9 @@ char * dupstr (const char* s) {
    char *r;
 
    r = (char*) malloc ((strlen (s) + 1));
+   if (r == nullptr) 
+      FC_THROW_EXCEPTION( std::bad_alloc, "memory alloc failure" );
+
    strcpy (r, s);
    return (r);
 }
